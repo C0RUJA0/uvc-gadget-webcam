@@ -33,5 +33,3 @@ After the installation finishes, reboot the Raspberry Pi:
 ```bash
 sudo reboot
 ```
-
-After the reboot, follow the usage and configuration instructions provided in the project repository to enable the UVC gadget and configure RTMP streaming.
