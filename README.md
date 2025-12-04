@@ -22,7 +22,7 @@ sudo apt install git ffmpeg v4l2loopback-dkms v4l-utils python3 python-is-python
 Clone the original repository and run the installation script:
 
 ```bash
-git clone https://github.com/Serialbocks/uvc-gadget-webcam.git
+git clone https://github.com/C0RUJA0/uvc-gadget-webcam.git
 cd uvc-gadget-webcam
 sudo chmod +x install.sh
 sudo ./install.sh
