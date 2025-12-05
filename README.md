@@ -1,10 +1,17 @@
-1. Recommended operating system
+# uvc-gadget-webcam
+
+This project provides everything needed to install all the software necessary for a working Raspberry Pi UVC gadget webcam that can be used as a video source and streamed through RTMP.
+These instructions have been adapted and tested on the Raspberry Pi Zero 2 W (Bookworm, arm64 lite).
+
+## Adjustments and installation (README summary)
+
+### 1. Recommended operating system
 
 Install this image on the Raspberry Pi Zero 2 W:
 
-2023-10-10-raspios-bookworm-arm64-lite.img.xz
+`2023-10-10-raspios-bookworm-arm64-lite.img.xz`
 
-2. Required packages (Raspberry Pi)
+### 2. Required packages (Raspberry Pi)
 
 Update and install dependencies:
 
@@ -20,7 +27,7 @@ sudo apt install \
   build-essential
 ```
 
-3. Clone and install the project
+### 3. Clone and install the project
 
 Clone the original repository:
 
@@ -37,11 +44,12 @@ Reboot the Raspberry Pi after installation:
 sudo reboot
 ```
 
-4. Optional: change the camera name shown on the host (Windows/macOS)
+## Optional: change the camera name shown on the host (Windows/macOS)
 
-By default, the UVC gadget function is created with a default name stored in the file `function_name` inside the UVC function directory. Many hosts (including Windows) use this value as the camera name (for example, “UVC Camera”). To force a custom name (for example, “PiSight”), adjust the script that creates the gadget.
+By default, the UVC gadget function is created with a default name stored in the file `function_name` inside the UVC function directory. Many hosts (including Windows) use this value as the camera name (for example, `UVC Camera`).
+To force a custom name (for example, `PiSight`), adjust the script that creates the UVC gadget.
 
-4.1 Edit the `rpi-uvc-gadget.sh` script
+### 4.1 Edit the `rpi-uvc-gadget.sh` script
 
 On the Raspberry Pi:
 
@@ -68,7 +76,13 @@ create_uvc () {
   # other configuration steps...
 ```
 
-Immediately after the line `mkdir functions/$FUNCTION`, add the line that writes the desired function name:
+Immediately after the line:
+
+```sh
+mkdir functions/$FUNCTION
+```
+
+add the line that writes the desired function name:
 
 ```sh
   echo " Creating UVC gadget functionality : $FUNCTION"
@@ -76,11 +90,11 @@ Immediately after the line `mkdir functions/$FUNCTION`, add the line that writes
   echo -n "PiSight" > functions/$FUNCTION/function_name
 ```
 
-If you prefer another name, replace `"PiSight"` with the desired text (avoid acents and caracteres especiais).
+If you prefer another name, replace `"PiSight"` with the desired text (avoid accents and special characters).
 
 Save and close the file.
 
-4.2 Recreate the gadget to apply the change
+### 4.2 Recreate the gadget to apply the change
 
 Stop the service and the gadget:
 
@@ -104,7 +118,7 @@ sudo /opt/uvc-gadget-webcam/rpi-uvc-gadget.sh start
 sudo systemctl start uvc-gadget-webcam.service
 ```
 
-4.3 Verify the function name on the Pi
+### 4.3 Verify the function name on the Pi
 
 ```bash
 G=/sys/kernel/config/usb_gadget
@@ -121,8 +135,9 @@ function_name:
 PiSight
 ```
 
-4.4 Test on the host computer
+### 4.4 Test on the host computer
 
 Disconnect and reconnect the USB cable between the Raspberry Pi and the host computer.
 
-On Windows, open Device Manager and check under “Cameras”: the device should now appear with the name defined in `function_name` (for example, “PiSight”), instead of the generic “UVC Camera”. On macOS, the new name should also appear in applications that list video devices.
+On Windows, open Device Manager and check under “Cameras”: the device should now appear with the name defined in `function_name` (for example, `PiSight`), instead of the generic `UVC Camera`.
+On macOS, the new name should also appear in applications that list video devices.
