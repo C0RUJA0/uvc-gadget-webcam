@@ -32,7 +32,7 @@ sudo apt install \
 Clone the original repository:
 
 ```bash
-git clone [https://github.com/Serialbocks/uvc-gadget-webcam.git](https://github.com/C0RUJA0/uvc-gadget-webcam.git)
+git clone https://github.com/C0RUJA0/uvc-gadget-webcam.git
 cd uvc-gadget-webcam
 sudo chmod +x install.sh
 sudo ./install.sh
