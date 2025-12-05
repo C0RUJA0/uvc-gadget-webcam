@@ -1,7 +1,3 @@
-Segue o texto ajustado, já incluindo o procedimento para alterar o nome da câmera no computador hospedeiro usando o `function_name` (no exemplo, “PiSight”; basta trocar pelo nome que desejar).
-
-Adjustments and installation (README summary)
-
 1. Recommended operating system
 
 Install this image on the Raspberry Pi Zero 2 W:
