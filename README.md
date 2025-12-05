@@ -1,13 +1,12 @@
 # uvc-gadget-webcam
 
 This project provides everything needed to install all the software necessary for a working Raspberry Pi UVC gadget webcam that can be used as a video source and streamed through RTMP.
-These instructions have been adapted and tested on the Raspberry Pi Zero 2 W (Bookworm, arm64 lite).
 
 ## Adjustments and installation (README summary)
 
 ### 1. Recommended operating system
 
-Install this image on the Raspberry Pi Zero 2 W:
+Install this image on the Raspberry Pi:
 
 `2023-10-10-raspios-bookworm-arm64-lite.img.xz`
 
