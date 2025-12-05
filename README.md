@@ -29,7 +29,7 @@ sudo apt install \
 
 ### 3. Clone and install the project
 
-Clone the original repository:
+> Clone the forked repository with the applied fixes:
 
 ```bash
 git clone https://github.com/C0RUJA0/uvc-gadget-webcam.git
@@ -37,6 +37,7 @@ cd uvc-gadget-webcam
 sudo chmod +x install.sh
 sudo ./install.sh
 ```
+
 
 Reboot the Raspberry Pi after installation:
 
